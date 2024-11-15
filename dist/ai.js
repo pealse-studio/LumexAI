@@ -45,15 +45,15 @@ function initEmptyDatabase() {
         (0, fs_1.mkdirSync)(lumexPath);
     (0, fs_1.writeFileSync)(dataPath, JSON.stringify(ngramDatabase, null, 2));
 }
-function generateResponse(MESSAGE, LENGTH) {
-    if (MESSAGE.trim().length === 0)
+function generateResponse(message, length) {
+    if (message.trim().length === 0)
         return;
-    let currentWord = MESSAGE.split(' ').pop() ?? '';
+    let currentWord = message.split(' ').pop() ?? '';
     const closestWord = getClosestWord(currentWord);
     if (closestWord)
         currentWord = closestWord;
     const response = [currentWord];
-    while (response.length < LENGTH) {
+    while (response.length < length) {
         if (!ngramDatabase.ngrams[currentWord])
             break;
         const nextWords = Object.keys(ngramDatabase.ngrams[currentWord]);
@@ -86,6 +86,9 @@ function teachAI(message) {
     (0, fs_1.writeFileSync)(dataPath, JSON.stringify(ngramDatabase, null, 2));
 }
 function generateTextAI(message, length) {
+    if (Object.keys(ngramDatabase.ngrams).length === 0) {
+        return "The database is empty. Please use teachAI for training.";
+    }
     const processed = message.toLowerCase().split(/\s+/);
     return generateResponse(processed.join(' '), length);
 }

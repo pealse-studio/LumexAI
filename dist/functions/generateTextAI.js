@@ -5,26 +5,26 @@ const ai_1 = require("../ai");
 exports.default = new forgescript_1.NativeFunction({
     name: "$generateTextAI",
     version: "1.0.0",
-    description: "...",
+    description: "Generates text based on incoming message using AI",
     brackets: true,
     unwrap: true,
     args: [
         {
             name: "message",
-            description: "...",
+            description: "Input message to generate response",
             type: forgescript_1.ArgType.String,
             required: true,
             rest: false
         },
         {
             name: "answer",
-            description: "...",
+            description: "Default response (if generation fails)",
             type: forgescript_1.ArgType.String,
             rest: false
         },
         {
             name: "length",
-            description: "...",
+            description: "Length of generated text (default: 30)",
             type: forgescript_1.ArgType.Number,
             rest: false
         }

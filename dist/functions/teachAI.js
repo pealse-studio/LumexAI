@@ -5,13 +5,13 @@ const ai_1 = require("../ai");
 exports.default = new forgescript_1.NativeFunction({
     name: "$teachAI",
     version: "1.0.0",
-    description: "...",
+    description: "Trains AI based on the transmitted message",
     brackets: true,
     unwrap: true,
     args: [
         {
             name: "message",
-            description: "...",
+            description: "Message for AI training",
             type: forgescript_1.ArgType.String,
             required: true,
             rest: false
