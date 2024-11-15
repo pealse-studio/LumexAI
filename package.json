@@ -1,6 +1,6 @@
 {
   "name": "@pealse-studio/lumex-ai",
-  "description": "AI text generator. Learns from input data and generates unique content.",
+  "description": "AI text generator. Learns from input data and generates unique content",
   "version": "1.0.0",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
