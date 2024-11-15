@@ -1,0 +1,20 @@
+{
+  "name": "@pealse-studio/lumex-ai",
+  "description": "...",
+  "version": "1.0.0",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "scripts": {
+    "build": "tsc"
+  },
+  "author": "mlad_",
+  "license": "MIT",
+  "dependencies": {
+    "@tryforge/forgescript": "^1.4.0",
+    "fuzzyset": "^1.0.7"
+  },
+  "devDependencies": {
+    "@types/fuzzyset": "^1.0.7",
+    "typescript": "^5.6.3"
+  }
+}
