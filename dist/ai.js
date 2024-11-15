@@ -46,8 +46,6 @@ function initEmptyDatabase() {
     (0, fs_1.writeFileSync)(dataPath, JSON.stringify(ngramDatabase, null, 2));
 }
 function generateResponse(message, length) {
-    if (message.trim().length === 0)
-        return;
     let currentWord = message.split(' ').pop() ?? '';
     const closestWord = getClosestWord(currentWord);
     if (closestWord)
@@ -86,10 +84,11 @@ function teachAI(message) {
     (0, fs_1.writeFileSync)(dataPath, JSON.stringify(ngramDatabase, null, 2));
 }
 function generateTextAI(message, length) {
-    if (Object.keys(ngramDatabase.ngrams).length === 0) {
+    const processed = message.trim().toLowerCase().split(/\s+/);
+    if (processed.length === 0)
+        return;
+    if (Object.keys(ngramDatabase.ngrams).length === 0)
         return "The database is empty. Please use teachAI for training.";
-    }
-    const processed = message.toLowerCase().split(/\s+/);
     return generateResponse(processed.join(' '), length);
 }
 //# sourceMappingURL=ai.js.map
