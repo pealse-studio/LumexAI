@@ -30,11 +30,8 @@ exports.default = new forgescript_1.NativeFunction({
         }
     ],
     execute(ctx, [message, answer, length]) {
-        const num = length || 30;
-        const generate = (0, ai_1.generateTextAI)(String(message), Number(num));
-        const text = answer || "Sorry, I couldn't understand your request.";
-        const result = generate || text;
+        const result = (0, ai_1.generateTextAI)(String(message), Number(length) || 30) || (answer || "Sorry, I couldn't understand your request.");
         return this.success(result);
-    },
+    }
 });
 //# sourceMappingURL=generateTextAI.js.map
