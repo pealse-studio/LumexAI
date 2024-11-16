@@ -20,6 +20,6 @@ exports.default = new forgescript_1.NativeFunction({
     execute(ctx, [message]) {
         (0, ai_1.teachAI)(message);
         return this.success();
-    },
+    }
 });
 //# sourceMappingURL=teachAI.js.map

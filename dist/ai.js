@@ -3,6 +3,7 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
     return (mod && mod.__esModule) ? mod : { "default": mod };
 };
 Object.defineProperty(exports, "__esModule", { value: true });
+exports.wordCountAI = wordCountAI;
 exports.teachAI = teachAI;
 exports.generateTextAI = generateTextAI;
 const fs_1 = require("fs");
@@ -50,7 +51,13 @@ function generateResponse(message, length) {
     const closestWord = getClosestWord(currentWord);
     if (closestWord)
         currentWord = closestWord;
-    const response = [currentWord];
+    const response = [];
+    if (ngramDatabase.ngrams[currentWord]) {
+        const nextWords = Object.keys(ngramDatabase.ngrams[currentWord]);
+        const nextWord = nextWords[Math.floor(Math.random() * nextWords.length)];
+        response.push(nextWord);
+        currentWord = nextWord;
+    }
     while (response.length < length) {
         if (!ngramDatabase.ngrams[currentWord])
             break;
@@ -59,15 +66,20 @@ function generateResponse(message, length) {
         response.push(nextWord);
         currentWord = nextWord;
     }
-    response[0] = response[0].charAt(0).toUpperCase() + response[0].slice(1);
+    if (response.length > 0) {
+        response[0] = response[0].charAt(0).toUpperCase() + response[0].slice(1);
+    }
     return response.join(' ');
 }
 function getClosestWord(word) {
     const result = fuzzyWordSet.get(word);
     return result && result.length > 0 ? result[0][1] : null;
 }
+function wordCountAI() {
+    return ngramDatabase.wordCount;
+}
 function teachAI(message) {
-    const processed = message.toLowerCase().split(/\s+/);
+    const processed = message.trim().toLowerCase().split(/\s+/);
     ngramDatabase.wordCount += processed.length;
     for (let i = 0; i < processed.length - 1; i++) {
         const currentWord = processed[i];

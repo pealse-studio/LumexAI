@@ -1,0 +1,1 @@
+{"version":3,"file":"wordCountAI.js","sourceRoot":"","sources":["../../src/functions/wordCountAI.ts"],"names":[],"mappings":";;AAAA,uDAAuD;AACvD,8BAAoC;AAEpC,kBAAe,IAAI,4BAAc,CAAC;IAC9B,IAAI,EAAE,cAAc;IACpB,OAAO,EAAE,OAAO;IAChB,WAAW,EAAE,oDAAoD;IACjE,MAAM,EAAE,IAAI;IACZ,OAAO,CAAC,GAAG;QACP,OAAO,IAAI,CAAC,OAAO,CAAC,IAAA,gBAAW,GAAE,CAAC,CAAC;IACvC,CAAC;CACJ,CAAC,CAAC"}
