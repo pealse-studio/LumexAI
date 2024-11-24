@@ -4,17 +4,10 @@
   "version": "1.0.0",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
-  "scripts": {
-    "build": "tsc"
-  },
-  "author": "mlad_",
+  "author": "Mlad (https://github.com/eolthar)",
   "license": "GPL-3.0",
   "dependencies": {
     "@tryforge/forgescript": "^1.4.0",
     "fuzzyset": "^1.0.7"
-  },
-  "devDependencies": {
-    "@types/fuzzyset": "^1.0.7",
-    "typescript": "^5.6.3"
   }
 }
